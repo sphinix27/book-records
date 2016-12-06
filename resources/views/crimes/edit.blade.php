@@ -2,21 +2,21 @@
 
 @section('body')
 
-<form action="/denouncers/{{ $denouncer->id }}" method="POST">
-	{{ method_field('PATCH') }}
+<form action="/crimes/{{ $crime->id }}" method="POST">
+	{{ method_field('PUT') }}
 	{{ csrf_field() }}
 	<div>
-		<label class="label">First Name</label>
+		<label class="label">Article</label>
 		<p class="control">
-			<input class="input" type="text" placeholder="First Name" name="firstname" value="{{ $denouncer->firstname }}">
+			<input class="input" type="text" placeholder="Article" name="article" value="{{ $crime->article }}">
 		</p>
-		<label class="label">Last Name</label>
+		<label class="label">Subsection</label>
 		<p class="control">
-			<input class="input" type="text" placeholder="Last Name" name="lastname" value="{{ $denouncer->lastname }}">
+			<input class="input" type="text" placeholder="Subsection" name="subsection" value="{{ $crime->subsection }}">
 		</p>
-		<label class="label">CI</label>
+		<label class="label">Name</label>
 		<p class="control">
-			<input class="input" type="text" placeholder="CI" name="ci" value="{{ $denouncer->ci }}">
+			<input class="input" type="text" placeholder="Name" name="name" value="{{ $crime->name }}">
 		</p>
 
 		@if (count($errors) > 0)

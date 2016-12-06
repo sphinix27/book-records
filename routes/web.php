@@ -11,14 +11,10 @@
 |
 */
 
-Route::get('/records', 'RecordsController@index');
-Route::get('/records/{id}', 'RecordsController@show');
+// Route::get('/records', 'RecordsController@index');
+// Route::get('/records/{id}', 'RecordsController@show');
+Route::resource('/records','RecordsController', ['except' => ['destroy']]);
 
-Route::post('/denouncers', 'DenouncersController@store');
-Route::get('/denouncers', 'DenouncersController@index');
-Route::get('/denouncers/create', 'DenouncersController@create');
-Route::get('/denouncers/{id}', 'DenouncersController@show');
-Route::patch('/denouncers/{id}', 'DenouncersController@update');
-Route::get('/denouncers/{id}/edit', 'DenouncersController@edit');
-
-Route::resource('/algo','DenouncedsController');
+Route::resource('/denounceds','DenouncedsController', ['except' => ['destroy']]);
+Route::resource('/denouncers','DenouncersController', ['except' => ['destroy']]);
+Route::resource('/crimes','CrimesController', ['except' => ['destroy']]);

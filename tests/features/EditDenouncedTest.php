@@ -1,34 +1,34 @@
 <?php
 
 use App\User;
-use App\Denouncer;
+use App\Denounced;
 
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class EditDenouncerTest extends TestCase
+class EditDenouncedTest extends TestCase
 {
-	use DatabaseMigrations;
+    use DatabaseMigrations;
 
     /** @test */
-    function can_edit_a_denouncer()
+    function can_edit_a_denounced()
     {
         $user = factory(User::class)->create();
 
-        $denouncer = factory(Denouncer::class)->create();
+        $denounced = factory(Denounced::class)->create();
 
         $this->actingAs($user)
-        	 ->visit('/denouncers/'.$denouncer->id.'/edit')
-        	 ->see($denouncer->firstname)
-        	 ->see($denouncer->lastname)
-        	 ->see($denouncer->ci)
+        	 ->visit('/denounceds/'.$denounced->id.'/edit')
+        	 ->see($denounced->firstname)
+        	 ->see($denounced->lastname)
+        	 ->see($denounced->ci)
         	 ->type('Abel', 'firstname')
         	 ->type('Barrientos', 'lastname')
         	 ->type('5683688', 'ci')
         	 ->press('Save');
 
-        $this->seeInDatabase('denouncers', [
+        $this->seeInDatabase('denounceds', [
         	'firstname' => 'Abel',
         	'lastname' => 'Barrientos',
         	'ci' => '5683688'
@@ -36,17 +36,17 @@ class EditDenouncerTest extends TestCase
     }
 
     /** @test */
-    function validate_when_editing_denouncer()
+    public function validate_when_editing_denounced()
     {
         $user = factory(User::class)->create();
 
-        $denouncer = factory(Denouncer::class)->create();
+        $denounced = factory(Denounced::class)->create();
 
         $this->actingAs($user)
-            ->visit('/denouncers/'.$denouncer->id.'/edit')
-            ->see($denouncer->firstname)
-        	->see($denouncer->lastname)
-        	->see($denouncer->ci)
+            ->visit('/denounceds/'.$denounced->id.'/edit')
+            ->see($denounced->firstname)
+        	->see($denounced->lastname)
+        	->see($denounced->ci)
         	->type('', 'firstname')
         	->type('', 'lastname')
         	->type('', 'ci')

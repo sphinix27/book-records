@@ -1,3 +1,7 @@
+@extends('_layouts.master')
+
+@section('body')
+
 <ul id="denouncers">
 	@foreach($denouncers as $denouncer)
 	<li>
@@ -6,3 +10,5 @@
 	</li>
 	@endforeach
 </ul>
+
+@endsection

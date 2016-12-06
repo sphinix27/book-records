@@ -1,34 +1,28 @@
 <?php
 
 use App\User;
-use App\Denouncer;
 
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class EditDenouncerTest extends TestCase
+class AddNewDenouncedTest extends TestCase
 {
-	use DatabaseMigrations;
+    use DatabaseMigrations;
 
     /** @test */
-    function can_edit_a_denouncer()
+    function can_add_new_denounced()
     {
         $user = factory(User::class)->create();
 
-        $denouncer = factory(Denouncer::class)->create();
-
         $this->actingAs($user)
-        	 ->visit('/denouncers/'.$denouncer->id.'/edit')
-        	 ->see($denouncer->firstname)
-        	 ->see($denouncer->lastname)
-        	 ->see($denouncer->ci)
+        	 ->visit('/denounceds/create')
         	 ->type('Abel', 'firstname')
         	 ->type('Barrientos', 'lastname')
         	 ->type('5683688', 'ci')
         	 ->press('Save');
 
-        $this->seeInDatabase('denouncers', [
+        $this->seeInDatabase('denounceds', [
         	'firstname' => 'Abel',
         	'lastname' => 'Barrientos',
         	'ci' => '5683688'
@@ -36,20 +30,12 @@ class EditDenouncerTest extends TestCase
     }
 
     /** @test */
-    function validate_when_editing_denouncer()
+    function validate_when_adding_a_new_denounced()
     {
         $user = factory(User::class)->create();
 
-        $denouncer = factory(Denouncer::class)->create();
-
         $this->actingAs($user)
-            ->visit('/denouncers/'.$denouncer->id.'/edit')
-            ->see($denouncer->firstname)
-        	->see($denouncer->lastname)
-        	->see($denouncer->ci)
-        	->type('', 'firstname')
-        	->type('', 'lastname')
-        	->type('', 'ci')
+            ->visit('/denounceds/create')
             ->press('Save');
 
         $this->see(trans('validation.required', ['attribute' => 'firstname', 'attribute' => 'lastname', 'attribute' => 'ci']));

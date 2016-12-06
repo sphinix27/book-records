@@ -11,4 +11,9 @@ class Denounced extends Model
     	'lastname',
     	'ci'
     ];
+
+    public function getFullnameAttribute()
+    {
+        return $this->firstname.' '.$this->lastname;
+    }
 }
