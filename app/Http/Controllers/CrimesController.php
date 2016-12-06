@@ -53,7 +53,6 @@ class CrimesController extends Controller
         ]);
         $crime = Crime::findOrFail($id);
         $crime->update(request()->only(['article', 'subsection', 'name']));
-        // return redirect()->route('crimes');
         return redirect('crimes');
     }
 }

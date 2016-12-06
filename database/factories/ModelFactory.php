@@ -50,6 +50,7 @@ $factory->define(App\Denounced::class, function (Faker\Generator $faker) {
 $factory->define(App\State::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->randomElement($array = array ('imputacion','acusacion','rechazo')),
+        'created_at' => \Carbon\Carbon::now()
     ];
 });
 

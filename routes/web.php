@@ -18,3 +18,4 @@ Route::resource('/records','RecordsController', ['except' => ['destroy']]);
 Route::resource('/denounceds','DenouncedsController', ['except' => ['destroy']]);
 Route::resource('/denouncers','DenouncersController', ['except' => ['destroy']]);
 Route::resource('/crimes','CrimesController', ['except' => ['destroy']]);
+Route::resource('/states','StatesController', ['except' => ['destroy']]);
