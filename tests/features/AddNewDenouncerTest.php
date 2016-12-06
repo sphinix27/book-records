@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use App\Denouncer;
 
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -38,6 +39,9 @@ class AddNewDenouncerTest extends TestCase
             ->visit('/denouncers/create')
             ->press('Save');
 
-        $this->see(trans('validation.required', ['attribute' => 'firstname', 'attribute' => 'lastname', 'attribute' => 'ci']));
+        $this->see(trans('validation.required', ['attribute' => 'firstname']))
+            ->see(trans('validation.required', ['attribute' => 'lastname']))
+            ->see(trans('validation.required', ['attribute' => 'ci']));
     }
+
 }

@@ -31,7 +31,7 @@
 
 		<p class="control">
 		  <button class="button is-primary">Save</button>
-		  <button class="button is-link">Cancel</button>
+		  <a class="button is-link" href="{{ url()->previous() }}">Cancel</a>
 		</p>
 	</div>
 </form>

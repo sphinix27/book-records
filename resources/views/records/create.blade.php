@@ -1,6 +1,7 @@
 @extends('_layouts.master')
 
 @section('body')
+<br>
 <div class="box">
 <form action="/records" method="POST">
 	{{ csrf_field() }}
@@ -13,6 +14,7 @@
 		<p class="control">
 		  <span class="select">
 		    <select name="denouncer_id">
+		    	<option>Select a Denouncer</option>
 		      @foreach($denouncers as $denouncer)
 		      	<option value="{{ $denouncer->id }}">{{ $denouncer->fullname }}</option>
 		      @endforeach
@@ -23,6 +25,7 @@
 		<p class="control">
 		  <span class="select">
 		    <select name="denounced_id">
+		      <option>Select a Denounced</option>
 		      @foreach($denounceds as $denounced)
 		      	<option value="{{ $denounced->id }}">{{ $denounced->fullname }}</option>
 		      @endforeach
@@ -33,6 +36,7 @@
 		<p class="control">
 		  <span class="select">
 		    <select name="crime_id">
+		      <option>Select a Crime</option>
 		      @foreach($crimes as $crime)
 		      	<option value="{{ $crime->id }}">{{ $crime->name }}</option>
 		      @endforeach
@@ -43,6 +47,7 @@
 		<p class="control">
 		  <span class="select">
 		    <select name="state_id">
+		      <option>Select a State</option>
 		      @foreach($states as $state)
 		      	<option value="{{ $state->id }}">{{ $state->name }}</option>
 		      @endforeach
@@ -66,7 +71,7 @@
 
 		<p class="control">
 		  <button class="button is-primary">Save</button>
-		  <button class="button is-link">Cancel</button>
+		  <a class="button is-link" href="{{ url()->previous() }}">Cancel</a>
 		</p>
 	</div>
 </form>

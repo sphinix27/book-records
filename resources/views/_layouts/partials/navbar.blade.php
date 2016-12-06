@@ -33,19 +33,19 @@
             <a class="nav-item is-tab" href="#">
               Home
             </a>
-            <a class="nav-item is-tab" href="/denouncers">
+            <a class="nav-item is-tab is-{{ active_class(if_uri('denouncers')) }}" href="/denouncers">
               Denouncers
             </a>
-            <a class="nav-item is-tab" href="/denounceds">
+            <a class="nav-item is-tab is-{{ active_class(if_uri('denounceds')) }}" href="/denounceds">
               Denounceds
             </a>
-            <a class="nav-item is-tab" href="/crimes">
+            <a class="nav-item is-tab is-{{ active_class(if_uri('crimes')) }}" href="/crimes">
               Crimes
             </a>
-            <a class="nav-item is-tab" href="/states">
+            <a class="nav-item is-tab is-{{ active_class(if_uri('states')) }}" href="/states">
               States
             </a>
-            <a class="nav-item is-tab" href="/records">
+            <a class="nav-item is-tab is-{{ active_class(if_uri('records')) }}" href="/records">
               Records
             </a>
             

@@ -2,7 +2,7 @@
 
 @section('body')
 <br>
-<div class="card">
+<div class="card column is-half is-offset-one-quarter">
   <div class="card-content">
     <div class="media">
       <div class="media-content">
@@ -12,7 +12,7 @@
     </div>
 
     <div class="content">
-      Name: {{ $state->name }}
+      <p id="state">Name: {{ $state->name }}</p>
       <br>
       <small>{{ $state->formatted_date }}</small>
     </div>
