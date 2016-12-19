@@ -17,7 +17,7 @@
 	    <div class="media-content">
 	      <div class="content">
 	        <p>
-	          <strong>Denounced: </strong> {{ $denouncer->id }}
+	          <strong>Denouncer: </strong> {{ $denouncer->id }}
 	          <br>
 	          <p>Fullname: {{ $denouncer->fullname }}</p>
 	          <p>CI: {{ $denouncer->ci }}</p>

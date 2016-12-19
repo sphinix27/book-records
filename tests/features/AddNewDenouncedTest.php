@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use App\Denounced;
 
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -22,6 +23,7 @@ class AddNewDenouncedTest extends TestCase
         	 ->type('5683688', 'ci')
         	 ->press('Save');
 
+        $this->assertEquals(1, Denounced::count());
         $this->seeInDatabase('denounceds', [
         	'firstname' => 'Abel',
         	'lastname' => 'Barrientos',

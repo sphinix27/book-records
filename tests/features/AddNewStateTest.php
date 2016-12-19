@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use App\State;
 
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -20,6 +21,9 @@ class AddNewStateTest extends TestCase
         	 ->type('RECHAZO', 'name')
         	 ->press('Save');
 
+        $state = State::all();
+
+        $this->assertTrue($state->contains('name', 'RECHAZO'));
         $this->seeInDatabase('states', [
         	'name' => 'RECHAZO',
         ]);

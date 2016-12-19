@@ -23,6 +23,7 @@ class AddNewDenouncerTest extends TestCase
         	 ->type('5683688', 'ci')
         	 ->press('Save');
 
+        $this->assertFalse(Denouncer::all()->isEmpty());
         $this->seeInDatabase('denouncers', [
         	'firstname' => 'Abel',
         	'lastname' => 'Barrientos',

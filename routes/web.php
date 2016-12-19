@@ -13,9 +13,18 @@
 
 // Route::get('/records', 'RecordsController@index');
 // Route::get('/records/{id}', 'RecordsController@show');
+
+Route::get('/', function () {
+    return view('welcome');
+});
 Route::resource('/records','RecordsController', ['except' => ['destroy']]);
 
 Route::resource('/denounceds','DenouncedsController', ['except' => ['destroy']]);
 Route::resource('/denouncers','DenouncersController', ['except' => ['destroy']]);
 Route::resource('/crimes','CrimesController', ['except' => ['destroy']]);
 Route::resource('/states','StatesController', ['except' => ['destroy']]);
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
